@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Figtree";
+}
+
+.link {
+  transition: 0.1s;
+}
+
+.link:hover p {
+  font-weight: 500;
+  color: #06152D;
+}
+
+.bell {
+  position: relative;
+}
+
+.bell:before {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  top: 7px;
+  right: 5px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
