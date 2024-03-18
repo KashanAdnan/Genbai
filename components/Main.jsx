@@ -98,7 +98,7 @@ const Main = () => {
             </div>
 
             <div className='border border-[#143261] ml-4 w-[150px] flex items-center justify-start flex-col rounded-lg'>
-            <div className='p-2'>
+              <div className='p-2'>
                 <Image src="/pdf.png" width={50} height={110} alt='' />
               </div>
               <div className='bg-[#0A1D38] border p-3 w-full border-[#143261]'>
