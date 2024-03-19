@@ -12,10 +12,10 @@ import { IoIosSettings, IoIosHelpCircle } from "react-icons/io";
 import { PiArrowsClockwise, PiStackSimpleFill } from "react-icons/pi";
 
 
-const Sidebar = () => {
+const Sidebar = ({ height }) => {
     return (
         <>
-            <div className="bg-[#061123] w-[232px] h-[161.3vh] text-[#99C0FF]">
+            <div className={`bg-[#061123] w-[232px] ${height ? `h-[${height}]` : "w-full"} text-[#99C0FF]`}>
 
                 <div className="border-y border-[#07335F] px-3 py-4">
                     <div className='flex items-center justify-start'>
@@ -59,7 +59,7 @@ const Sidebar = () => {
                     <Links title={"Settings"} icon={<IoIosSettings className='text-[18.8px]' />} />
                     <Links title={"Help"} icon={<IoIosHelpCircle className='text-[18.8px]' />} />
                 </div>
-            </div>
+            </div >
         </>
     )
 }
