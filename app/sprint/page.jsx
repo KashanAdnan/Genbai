@@ -1,8 +1,9 @@
+'use client'
 import Header from '@/components/Header'
 import { FaRegCircle } from "react-icons/fa";
 import Sidebar from '@/components/Sidebar'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { BiLoaderCircle } from 'react-icons/bi'
 import { FaCalendar, FaEye, FaPlus, FaRegSquare } from 'react-icons/fa'
 import { GiFallingStar } from 'react-icons/gi'
@@ -13,6 +14,7 @@ import { RiArrowUpDoubleLine } from 'react-icons/ri'
 import Sprint from '@/components/Sprint';
 
 const page = () => {
+    const [lightMode, setLightMode] = useState(false)
     const user = [
         {
             logo: 'Frontend Redesign',
@@ -44,10 +46,10 @@ const page = () => {
     ]
     return (
         <>
-            <Header />
-            <div className='flex items-center justify-start w-full'>
-                <Sidebar />
-                <div className="bg-[#06152D] w-full h-[161.3vh] text-[#99C0FF] overflow-x-scroll overflow-y-hidden">
+            <Header light={lightMode} lightMode={lightMode} setLightMode={setLightMode} />
+            <div className='flex items-start justify-start w-full'>
+                <Sidebar light={lightMode} height={170} maxHeight={170} />
+                <div className="bg-[#06152D] w-full h-[170vh] text-[#99C0FF] overflow-x-scroll overflow-y-hidden">
                     <p className='flex items-center  justify-start m-4 text-[#6B8CC2]'>Project Name / Team name (Workflow Type) / <span className='text-[#99C0FF]'> &ensp;Sprints</span> </p>
                     <h1 className='text-2xl text-[#99C0FF] font-medium ml-4'>Sprints</h1>
                     <div className='flex items-center justify-start border-b  border-[#305288] text-[#305288] m-4'>
@@ -85,9 +87,9 @@ const page = () => {
                             </div>
                             <div className='px-3'>
                                 {
-                                    user.map((item) => {
+                                    user.map((item, index) => {
                                         return (
-                                            <div className='p-4 bg-[#0A1D38] border border-[#143261] mb-1 shadow-[#6B8CC266] shadow-md'>
+                                            <div key={index} className='p-4 bg-[#0A1D38] border border-[#143261] mb-1 shadow-[#6B8CC266] shadow-md'>
                                                 <p className='flex items-center text-[#6B8CC2] text-[15px]'> <IoFlag className='bg-[#1444E1] text-[#fff] text-[15px] rounded-sm p-[1px] mr-2' /> {item.logo}</p>
                                                 <h3 className='text-[#AECDFF] text-[17px] my-2'>{item.title}</h3>
                                                 <div className='flex items-center justify-start'>

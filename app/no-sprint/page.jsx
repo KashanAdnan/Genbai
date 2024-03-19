@@ -1,8 +1,9 @@
+'use client'
 import Header from '@/components/Header'
 import { FaRegCircle } from "react-icons/fa";
 import Sidebar from '@/components/Sidebar'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { BiLoaderCircle } from 'react-icons/bi'
 import { FaCalendar, FaEye, FaPlus, FaRegSquare } from 'react-icons/fa'
 import { GiFallingStar } from 'react-icons/gi'
@@ -13,6 +14,7 @@ import { RiArrowUpDoubleLine } from 'react-icons/ri'
 import Sprint from '@/components/Sprint';
 
 const page = () => {
+    const [lightMode, setLightMode] = useState(false)
     const user = [
         {
             logo: 'Frontend Redesign',
@@ -44,10 +46,10 @@ const page = () => {
     ]
     return (
         <>
-            <Header />
-            <div className='flex items-center justify-start w-full'>
-                <Sidebar />
-                <div className="bg-[#06152D] w-full h-[161.3vh] text-[#99C0FF] overflow-x-scroll overflow-y-hidden">
+            <Header light={lightMode} lightMode={lightMode} setLightMode={setLightMode} />
+            <div className='flex items-center justify-start w-full o'>
+                <Sidebar light={lightMode} height={"161vh"} />
+                <div className="bg-[#06152D] w-full h-[161vh] text-[#99C0FF] overflow-x-scroll overflow-y-hidden max-[1024px]:h-[169.8vh]">
                     <p className='flex items-center  justify-start m-4 text-[#6B8CC2]'>Project Name / Team name (Workflow Type) / <span className='text-[#99C0FF]'> &ensp;Sprints</span> </p>
                     <h1 className='text-2xl text-[#99C0FF] font-medium ml-4'>Sprints</h1>
                     <div className='flex items-center justify-start border-b  border-[#305288] text-[#305288] m-4'>
@@ -55,7 +57,7 @@ const page = () => {
                         <p className='w-[130px] text-[15px] text-center pb-2'>Active Sprint</p>
                         <p className='w-[130px] text-[15px] text-center pb-2'>Retrospectives</p>
                     </div>
-                    <div className='ml-4 flex item-center justify-between'>
+                    <div className='ml-4 flex item-center justify-between max-[1024px]:w-full'>
                         <div className='flex items-center space-x-3'>
                             <div className='bg-[#0A1D38] border border-[#143261] rounded-sm py-[7px] flex items-center justify-start px-2 outline-none w-[280px]'>
                                 <IoIosSearch className='text-[20px] mr-4 text-[#305288]' />

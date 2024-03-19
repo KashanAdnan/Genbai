@@ -21,9 +21,9 @@ const Stories = ({ user }) => {
                 </div>
                 <div className='px-3'>
                     {
-                        user.map((item) => {
+                        user.map((item, index) => {
                             return (
-                                <Block title={item.title} date={item.date} logo={item.logo} aim={item.aim} plug={item.plug} sprint={item.sprint} images={item.images} />
+                                <Block key={index} title={item.title} date={item.date} logo={item.logo} aim={item.aim} plug={item.plug} sprint={item.sprint} images={item.images} />
                             )
                         })
                     }

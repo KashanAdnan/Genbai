@@ -1,8 +1,9 @@
+'use client'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import Stories from '@/components/Stories'
 import Image from 'next/image'
-import React from 'react'
+import { useState } from 'react'
 import { BiSolidMedal } from 'react-icons/bi'
 import { FaCalendar, FaTools } from 'react-icons/fa'
 import { FiPenTool } from 'react-icons/fi'
@@ -12,6 +13,7 @@ import { MdMenuBook } from 'react-icons/md'
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const page = () => {
+    const [lightMode, setLightMode] = useState(false)
     const user = [
         {
             logo: 'Frontend Redesign',
@@ -43,9 +45,9 @@ const page = () => {
     ]
     return (
         <>
-            <Header />
+            <Header light={lightMode} lightMode={lightMode} setLightMode={setLightMode} />
             <div className='flex items-start justify-start'>
-                <Sidebar height={"170.3vh"} />
+                <Sidebar height={170.3} light={lightMode} />
                 <div className="bg-[#06152D] w-full h-[170.3vh] text-[#99C0FF] overflow-x-scroll overflow-y-hidden">
                     <p className='flex items-center  justify-start m-4 text-[#6B8CC2]'>Project Name / Team name (Workflow Type) / <span className='text-[#99C0FF]'> &ensp;Sprints</span> </p>
                     <h1 className='text-2xl text-[#99C0FF] font-medium ml-4'>Sprints</h1>

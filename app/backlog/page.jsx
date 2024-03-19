@@ -1,6 +1,7 @@
+'use client'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
-import React from 'react'
+import React, { useState } from 'react'
 import { FaEye } from "react-icons/fa";
 import { IoIosArrowDown, IoIosSearch } from 'react-icons/io'
 import { BiLoaderCircle } from "react-icons/bi";
@@ -16,6 +17,7 @@ import Block from '@/components/Block';
 import Stories from '@/components/Stories';
 
 const page = () => {
+    const [lightMode, setLightMode] = useState(false)
     const user = [
         {
             logo: 'Frontend Redesign',
@@ -47,10 +49,10 @@ const page = () => {
     ]
     return (
         <>
-            <Header />
+            <Header light={lightMode} lightMode={lightMode} setLightMode={setLightMode} />
             <div className="flex items-start justify-start">
-                <Sidebar />
-                <div className="bg-[#06152D] w-full h-[161.3vh] text-[#99C0FF]">
+                <Sidebar height={158} light={lightMode} />
+                <div className="bg-[#06152D] w-full max-[1024px]:overflow-x-scroll h-[161vh] max-[1024px]:h-[169.7vh]  text-[#99C0FF]">
                     <p className='flex items-center justify-start m-4 text-[#6B8CC2]'>Project Name / Team name (Workflow Type) / <span className='text-[#99C0FF]'> &ensp;Backlog</span> </p>
                     <h1 className='text-2xl text-[#99C0FF] font-medium ml-4'>Blocklog Refining</h1>
                     <div className='flex items-center justify-start border-b  border-[#305288] text-[#305288] m-4'>
@@ -90,9 +92,9 @@ const page = () => {
                                 </div>
                                 <div className='px-3'>
                                     {
-                                        user.map((item) => {
+                                        user.map((item, index) => {
                                             return (
-                                                <Block title={item.title} date={item.date} logo={item.logo} aim={item.aim} plug={item.plug} sprint={item.sprint} images={item.images} />
+                                                <Block key={index} title={item.title} date={item.date} logo={item.logo} aim={item.aim} plug={item.plug} sprint={item.sprint} images={item.images} />
                                             )
                                         })
                                     }
